@@ -1,3 +1,6 @@
+<div id="content" style="display: none;">
+    <!-- 这里放置你的主页内容 -->
+  </div>
 ---
 layout: page
 description: "「离开世界之前 一切都是过程」"
@@ -43,4 +46,16 @@ description: "「离开世界之前 一切都是过程」"
     </li>
     {% endif %}
 </ul>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('/.token')
+        .then(response => response.text())
+        .then(data => {
+          if (data === 'true') {
+            document.getElementById('content').style.display = 'block'; // 令牌存在，显示内容
+          }
+        });
+    });
+  </script>
 {% endif %}
